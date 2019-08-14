@@ -27,6 +27,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: greenColor,
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Expanded(
             flex: 4,
@@ -58,6 +59,53 @@ class MyHomePage extends StatelessWidget {
                       "10' Nursery Pot",
                       style: TextStyle(color: Colors.black45),
                     ),
+                    SizedBox(height: 12.0),
+                    Row(
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 10.0),
+                          child: Text(
+                            "\$",
+                            style: TextStyle(
+                              color: greenColor,
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 4.0),
+                        Text(
+                          "85",
+                          style: TextStyle(
+                            color: greenColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 52.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Spacer(),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        FloatingActionButton(
+                          onPressed: () {},
+                          backgroundColor: greenColor,
+                          child: Icon(
+                            Icons.shopping_cart,
+                          ),
+                        ),
+                        Container(
+                          width: 200.0,
+                          child: Image.network(
+                            productImage,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 16.0),
                   ],
                 ),
               ),
@@ -65,7 +113,20 @@ class MyHomePage extends StatelessWidget {
           ),
           Expanded(
             flex: 1,
-            child: Container(),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 38.0),
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: 16.0),
+                  Text(
+                    "Planting",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
