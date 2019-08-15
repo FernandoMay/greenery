@@ -7,6 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Greenery',
       theme: ThemeData(
         primarySwatch: Colors.green,
@@ -35,7 +36,7 @@ class MyHomePage extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius:
-                    BorderRadius.only(bottomLeft: Radius.circular(120.0)),
+                    BorderRadius.only(bottomLeft: Radius.circular(80.0)),
                 color: Colors.white,
               ),
               child: Padding(
@@ -43,9 +44,9 @@ class MyHomePage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    SizedBox(height: 32.0),
-                    Icon(Icons.arrow_back_ios),
-                    SizedBox(height: 32.0),
+                    SizedBox(height: 12.0),
+                    Icon(Icons.arrow_back),
+                    SizedBox(height: 12.0),
                     Container(
                       width: 300.0,
                       child: Text(
@@ -90,22 +91,28 @@ class MyHomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         FloatingActionButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => DetailsScreen()));
+                          },
                           backgroundColor: greenColor,
                           child: Icon(
                             Icons.shopping_cart,
                           ),
                         ),
                         Container(
-                          width: 200.0,
+                          width: 150.0,
                           child: Image.network(
                             productImage,
                             fit: BoxFit.cover,
                           ),
                         ),
+                        SizedBox(width: 4.0),
                       ],
                     ),
-                    SizedBox(height: 16.0),
+                    SizedBox(height: 12.0),
                   ],
                 ),
               ),
@@ -116,6 +123,7 @@ class MyHomePage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 38.0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(height: 16.0),
                   Text(
@@ -124,10 +132,114 @@ class MyHomePage extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
+                  Spacer(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Container(
+                        height: 100.0,
+                        width: MediaQuery.of(context).size.width / 2 - 50,
+                        decoration: BoxDecoration(
+                          color: darkGreenColor,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(32.0),
+                            topRight: Radius.circular(32.0),
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  "250",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 42.0,
+                                  ),
+                                ),
+                                SizedBox(width: 6.0),
+                                Text(
+                                  "ml",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Text(
+                              "Water",
+                              style: TextStyle(
+                                color: Colors.white54,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: 100.0,
+                        width: MediaQuery.of(context).size.width / 2 - 50,
+                        decoration: BoxDecoration(
+                          color: darkGreenColor,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(32.0),
+                            topRight: Radius.circular(32.0),
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  "18",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 42.0,
+                                  ),
+                                ),
+                                SizedBox(width: 6.0),
+                                Text(
+                                  "c",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Text(
+                              "Sunshine",
+                              style: TextStyle(
+                                color: Colors.white54,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class DetailsScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: greenColor,
+      body: Column(
+        children: <Widget>[
+          Container(),
         ],
       ),
     );
